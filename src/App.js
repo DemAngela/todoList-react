@@ -1,12 +1,20 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import dayjs from "dayjs";
+import EditModal from "./Components/EditModal";
 const url = 'https://65642486ceac41c0761d7ee4.mockapi.io/todo'
+
 
 function App() {
     const [todos, setTodos] = useState([])
     const [todoTitle, setTodoTitle] = useState('')
-    const [newTodoTitle, setNewTodoTitle] = useState('')
+    const [idTodo, setIdTodo]  = useState('')
+    const [editModalOpen, setEditModalOpen] = useState(false)
+
+    const handleEdit = (idTodo) =>{
+        setEditModalOpen (true)
+        setIdTodo(idTodo)
+    }
 
     useEffect(() => {
         axios('https://65642486ceac41c0761d7ee4.mockapi.io/todo')
@@ -32,9 +40,18 @@ function App() {
             .then(({data}) => setTodos(todos.filter(todo=>todo.id!==data.id)))
     }
 
-    const handleEdit = () => {
-
+    const handleSave =(todo) =>{
+        axios.put(`${url}/${idTodo}`,todo)
+            .then(({data})=>{
+                setTodos(todos.map(el =>el.id  === data.id ? data:el))
+            })
     }
+
+    useEffect(() =>{
+        axios.get(url)
+            .then(({data}) =>setTodos(data))
+    },[])
+
 
     return (
         <>
@@ -48,6 +65,12 @@ function App() {
                     <button className={'mainBtn'} onClick={handleAddTod}>OK</button>
                 </div>
                 {
+                    editModalOpen &&
+                    <EditModal handleSave={handleSave} setOpen={setEditModalOpen} idTodo ={idTodo} url={url}/>
+
+
+                }
+                {
                     todos.map(todo =>
                         <div key={todo}>
                             <div className={'todoWrapper'}>
@@ -56,7 +79,7 @@ function App() {
                                 <span className={'dateWrapper'}>
                                     {dayjs(todo.createdAt).format('HH:mm DD.MM.YYYY')}
                                 </span>
-                                <button className={'editBtn'}>Edit</button>
+                                <button className={'editBtn'} onClick={() =>handleEdit(todo.id)}>Edit</button>
                                 <button className={'deleteBtn'} onClick={() => handleDelete(todo)}>Х</button>
                             </div>
                         </div>
