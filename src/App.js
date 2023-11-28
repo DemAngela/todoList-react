@@ -55,13 +55,17 @@ function App() {
 
     return (
         <>
+            <body>
             <div className={'container'}>
-                <h1>Todo List</h1>
+                <div className={'todoTitle'}>
+                    <h1 className={'h1Todo'}>TODO</h1>
+                    <h1 className={'H1List'}>List</h1>
+                </div>
                 <div className={'todoMain'}>
                     <input className={'inputMain'}
-                        onChange={(e) => setTodoTitle(e.target.value)}
-                        value={todoTitle}
-                        type="text"/>
+                           onChange={(e) => setTodoTitle(e.target.value)}
+                           value={todoTitle}
+                           type="text"/>
                     <button className={'mainBtn'} onClick={handleAddTod}>OK</button>
                 </div>
                 {
@@ -74,18 +78,25 @@ function App() {
                     todos.map(todo =>
                         <div key={todo}>
                             <div className={'todoWrapper'}>
-                                <input type="checkbox" checked={todo.completed}/>
-                                <h3>{todo.title}</h3>
+                                <div className={'todoInner'}>
+                                    <input type="checkbox" checked={todo.completed}/>
+                                    <h3>{todo.title}</h3>
+                                </div>
                                 <span className={'dateWrapper'}>
                                     {dayjs(todo.createdAt).format('HH:mm DD.MM.YYYY')}
                                 </span>
-                                <button className={'editBtn'} onClick={() =>handleEdit(todo.id)}>Edit</button>
-                                <button className={'deleteBtn'} onClick={() => handleDelete(todo)}>Х</button>
+                                <div className={'todoBtn'}>
+                                    <button className={'editBtn'} onClick={() =>handleEdit(todo.id)}>Edit</button>
+                                    <button className={'deleteBtn'} onClick={() => handleDelete(todo)}>Х</button>
+                                </div>
+
                             </div>
                         </div>
                     )
                 }
             </div>
+            </body>
+
         </>
     );
 }

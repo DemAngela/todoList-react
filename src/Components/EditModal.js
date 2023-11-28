@@ -17,15 +17,19 @@ const EditModal = ({handleSave,idTodo,url,setOpen}) => {
 
     return (
         <>
-            <input type="text" value={todo.title} onChange={(e) => {
-                setTodo({...todo,title: e.target.value})
-            }}/>
-            <input type="checkbox" onChange={handleEdit} checked={todo.completed}/>
-            <button onClick={() => {
-                handleSave(todo)
-                setOpen(false)
-            }}>Save</button>
-            <button onClick={() => setOpen(false)}>Close</button>
+            <div className={'editWrapper'}>
+                <input className={'editText'} type="text" value={todo.title} onChange={(e) => {
+                    setTodo({...todo,title: e.target.value})
+                }}/>
+                <div className={'editInner'}>
+                    <button className={'save'} onClick={() => {
+                        handleSave(todo)
+                        setOpen(false)
+                    }}>Save</button>
+                    <input  type="checkbox" onChange={handleEdit} checked={todo.completed}/>
+                    <button className={'close'} onClick={() => setOpen(false)}>Close</button>
+                </div>
+            </div>
         </>
     )
 }

@@ -4,8 +4,20 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: linear-gradient( rgba(58, 57, 57, 0.82), rgba(224, 213, 190, 0.52)), url("../Assets/kseniya-lapteva-fYAbU-yaDlg-unsplash.jpg");
+    background-repeat: no-repeat ;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .container {
+    margin: 70px;
     max-width: 800px;
     display: flex;
     flex-direction: column;
@@ -13,6 +25,29 @@
     align-items: center;
     gap: 10px;
 }
+
+.todoTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h1Todo {
+    font-family: 'Brygada 1918', serif;
+    font-weight: 600;
+    font-size: 120px;
+    color: rgba(154, 168, 168, 0.47);
+    position: relative;
+
+}
+
+.H1List {
+    position: absolute;
+    font-family: 'Herr Von Muellerhoff', cursive;
+    font-size: 80px;
+    color: #466A44;
+}
+
 
 .todoMain {
     display: flex;
@@ -23,63 +58,140 @@
 
 .inputMain {
     padding: 5px 10px;
-    background-color: #8979F2;
+    background-color: rgba(224, 213, 190, 0.74);
     border: none;
     border-radius: 20px;
     outline: none;
     color: white;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .mainBtn {
     border-radius: 20px;
-    background-color: #F28F16;
-    padding: 5px 10px;
+    background-color: rgba(70, 106, 68, 0.94);
+    padding: 5px 25px;
     border: none;
     position: absolute;
-    left: 145px;
+    left: 180px;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .todoWrapper {
-    width: 400px;
+    width: 600px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    background-color: #E7DCC8;
-    padding: 5px;
-    border-radius: 10px;
+    background-color: rgba(154, 168, 168, 0.62);
+    border: 1px solid #9AA8A8;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.todoInner {
+    display: flex;
+    gap: 10px;
 }
 
 h3  {
-    width: 150px;
+    width: 250px;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #E0D5BE;
 }
 
 .dateWrapper {
     font-size: 10px;
-    color: #999;
+    color: #466A44;
 }
 
-.editBtn {
-    padding: 3px 5px;
-    border: none;
-    border-radius: 10px;
-    background-color: #5E66D5;
-}
-
-.editBtn:hover {
-    background-color: #5B86CB;
-}
-
-.deleteBtn {
-    padding: 3px 5px;
-    border-radius: 10px;
-    border: none;
-    background-color: #AB2C4B;
-    font-size: 10px;
+.todoBtn {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
-.deleteBtn:hover {
-    background-color: #E0417B;
+.editBtn {
+    height: 30px;
+    width: 40px;
+    padding: 3px 5px;
+    border: none;
+    border-radius:  10px ;
+    background-color: rgba(70, 106, 68, 0.91);
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.deleteBtn {
+    height: 30px;
+    width: 30px;
+    border-radius:20px;
+    border: none;
+    background-color: rgba(199, 73, 92, 0.86);
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-weight: 500;
+}
+
+.editWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: rgba(224, 144, 141, 0.73);
+    border-radius: 20px;
+}
+
+.editText {
+    padding: 5px 10px;
+    background-color: rgba(224, 213, 190, 0.74);
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    color: white;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    width: 225px;
+}
+
+.editInner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.save {
+    padding: 7px 10px;
+    border: none;
+    border-radius:  10px ;
+    background-color: rgba(70, 106, 68, 0.91);
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.close {
+    padding: 7px 10px;
+    border-radius:10px;
+    border: none;
+    background-color: rgba(199, 73, 92, 0.86);
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-weight: 500;
 }
